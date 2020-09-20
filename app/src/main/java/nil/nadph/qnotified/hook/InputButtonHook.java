@@ -102,7 +102,7 @@ public class InputButtonHook extends BaseDelayableHook {
                             layout.setTouchInterceptor(new TouchEventToLongClickAdapter() {
                                 @Override
                                 public boolean onTouch(View v, MotionEvent event) {
-                                    if (LicenseStatus.hasBlackFlags() || !CardMsgHook.get().isEnabled())
+                                    if (!CardMsgHook.get().isEnabled())
                                         return false;
                                     ViewGroup vg = (ViewGroup) v;
                                     if (event.getAction() == MotionEvent.ACTION_DOWN &&
@@ -116,7 +116,7 @@ public class InputButtonHook extends BaseDelayableHook {
                                 public boolean onLongClick(View v) {
                                     try {
                                         if (LicenseStatus.sDisableCommonHooks) return false;
-                                        if (LicenseStatus.hasBlackFlags() || !CardMsgHook.get().isEnabled())
+                                        if (!CardMsgHook.get().isEnabled())
                                             return false;
                                         ViewGroup vg = (ViewGroup) v;
                                         Context ctx = v.getContext();
